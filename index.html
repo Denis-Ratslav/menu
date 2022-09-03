@@ -9,7 +9,7 @@
 		<title>Назови компоненты</title>
 	</head>
 	<body>
-		<p>русский вариант</p>
+		<p>русский вариант тест</p>
 		<button onclick="speechru ()">Слушать РУС</button>
 
 		<button onclick="stopru ()">Остановить РУС</button>
@@ -24,7 +24,6 @@
 
 			// Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
 			recognizerru.interimResults = false;
-			recognizerru.onsoundend = false;
 
 			// Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
 			recognizerru.maxAlternatives = 6000;
@@ -34,7 +33,8 @@
 
 			// Используем колбек для обработки результатов
 			recognizerru.onresult = function (eventru) {
-				var resultru = eventru.results[eventru.resultIndex];
+				var resultru = eventru.results[0];
+				// var resultru = eventru.results[eventru.resultIndex];
 				if (resultru.isFinal) {
 					alert("Вы сказали: " + resultru[0].transcript);
 				} else {
@@ -58,44 +58,43 @@
 				recognizerru.stop();
 			}
 
-			// Создаем распознаватель
-			var recognizer = new webkitSpeechRecognition();
+			// // Создаем распознаватель
+			// var recognizer = new webkitSpeechRecognition();
 
-			// Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
-			recognizer.interimResults = false;
-			recognizer.onsoundend = false;
+			// // Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
+			// recognizer.interimResults = false;
 
-			// Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
-			recognizer.maxAlternatives = 6000;
+			// // Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
+			// recognizer.maxAlternatives = 6000;
 
-			// Какой язык будем распознавать?
-			recognizer.lang = "uk-Uk";
+			// // Какой язык будем распознавать?
+			// recognizer.lang = "uk-Uk";
 
-			// Используем колбек для обработки результатов
-			recognizer.onresult = function (event) {
-				var result = event.results[event.resultIndex];
-				if (result.isFinal) {
-					alert("Вы сказали: " + result[0].transcript);
-				} else {
-					console.log("Промежуточный результат: ", result[0].transcript);
-				}
-			};
+			// // Используем колбек для обработки результатов
+			// recognizer.onresult = function (event) {
+			// 	var result = event.results[event.resultIndex];
+			// 	if (result.isFinal) {
+			// 		alert("Вы сказали: " + result[0].transcript);
+			// 	} else {
+			// 		console.log("Промежуточный результат: ", result[0].transcript);
+			// 	}
+			// };
 
-			function speech() {
-				// Начинаем слушать микрофон и распознавать голос
-				recognizer.start();
-			}
-
-			// var synth = window.speechSynthesis;
-			// var utterance = new SpeechSynthesisUtterance("How about we say this now? This is quite a long sentence to say.");
-
-			// function talk() {
-			// 	synth.speak(utterance);
+			// function speech() {
+			// 	// Начинаем слушать микрофон и распознавать голос
+			// 	recognizer.start();
 			// }
 
-			function stop() {
-				recognizer.stop();
-			}
+			// // var synth = window.speechSynthesis;
+			// // var utterance = new SpeechSynthesisUtterance("How about we say this now? This is quite a long sentence to say.");
+
+			// // function talk() {
+			// // 	synth.speak(utterance);
+			// // }
+
+			// function stop() {
+			// 	recognizer.stop();
+			// }
 		</script>
 	</body>
 </html>
