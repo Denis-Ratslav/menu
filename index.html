@@ -9,14 +9,14 @@
 		<title>Назови компоненты</title>
 	</head>
 	<body>
-		<p>русский вариант тест 9</p>
-		<button onclick="recognizerru.start();">Слушать РУС</button>
+		<h3>русский вариант тест 9</h3>
+		<button onclick="recognizerru.start();"><img src="./img/png-start.png" alt="Слушать" /></button>
 
-		<button onclick="recognizerru.stop();">Остановить РУС</button>
-		<p>украинский вариант</p>
-		<button onclick="speech ()">Слушать УКР</button>
+		<button onclick="recognizerru.stop();"><img src="./img/png-stop.png" alt="Остановить" /></button>
+		<h3>украинский вариант</h3>
+		<button onclick="recognizerru.start()"><img src="./img/png-start.png" alt="Слушать" /></button>
 
-		<button onclick="stop ()">Остановить УКР</button>
+		<button onclick="recognizerru.stop ()"><img src="./img/png-stop.png" alt="Остановить" /></button>
 
 		<script>
 			// Создаем распознаватель
@@ -31,15 +31,6 @@
 				alert("Вы сказали: " + resultru[0].transcript);
 			};
 
-			// function speechru() {
-			// 	// Начинаем слушать микрофон и распознавать голос
-			// 	recognizerru.start();
-			// }
-
-			// function stopru() {
-			// 	recognizerru.stop();
-			// }
-
 			// Создаем распознаватель
 			var recognizer = new webkitSpeechRecognition();
 
@@ -50,15 +41,6 @@
 			recognizer.onresult = function (event) {
 				alert("Вы сказали: " + result[0].transcript);
 			};
-
-			function speech() {
-				// Начинаем слушать микрофон и распознавать голос
-				recognizer.start();
-			}
-
-			function stop() {
-				recognizer.stop();
-			}
 		</script>
 	</body>
 </html>
