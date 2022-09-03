@@ -13,10 +13,10 @@
 		<button onclick="speechru ()">Слушать РУС</button>
 
 		<button onclick="stopru ()">Остановить РУС</button>
-		<!-- <p>украинский вариант</p>
+		<p>украинский вариант</p>
 		<button onclick="speech ()">Слушать УКР</button>
 
-		<button onclick="stop ()">Остановить УКР</button> -->
+		<button onclick="stop ()">Остановить УКР</button>
 	</body>
 	<script>
 		// Создаем распознаватель
@@ -58,43 +58,42 @@
 			recognizerru.stop();
 		}
 
-		// // укр вариант
-		// // Создаем распознаватель
-		// var recognizer = new webkitSpeechRecognition();
+		// Создаем распознаватель
+		var recognizer = new webkitSpeechRecognition();
 
-		// // Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
-		// recognizer.interimResults = true;
+		// Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
+		recognizer.interimResults = true;
 
-		// // Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
-		// recognizer.maxAlternatives = 600;
+		// Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
+		recognizer.maxAlternatives = 600;
 
-		// // Какой язык будем распознавать?
-		// recognizer.lang = "uk-Uk";
+		// Какой язык будем распознавать?
+		recognizer.lang = "uk-Uk";
 
-		// // Используем колбек для обработки результатов
-		// recognizer.onresult = function (event) {
-		// 	var result = event.results[event.resultIndex];
-		// 	if (result.isFinal) {
-		// 		alert("Вы сказали: " + result[0].transcript);
-		// 	} else {
-		// 		console.log("Промежуточный результат: ", result[0].transcript);
-		// 	}
-		// };
+		// Используем колбек для обработки результатов
+		recognizer.onresult = function (event) {
+			var result = event.results[event.resultIndex];
+			if (result.isFinal) {
+				alert("Вы сказали: " + result[0].transcript);
+			} else {
+				console.log("Промежуточный результат: ", result[0].transcript);
+			}
+		};
 
-		// function speech() {
-		// 	// Начинаем слушать микрофон и распознавать голос
-		// 	recognizer.start();
+		function speech() {
+			// Начинаем слушать микрофон и распознавать голос
+			recognizer.start();
+		}
+
+		// var synth = window.speechSynthesis;
+		// var utterance = new SpeechSynthesisUtterance("How about we say this now? This is quite a long sentence to say.");
+
+		// function talk() {
+		// 	synth.speak(utterance);
 		// }
 
-		// // var synth = window.speechSynthesis;
-		// // var utterance = new SpeechSynthesisUtterance("How about we say this now? This is quite a long sentence to say.");
-
-		// // function talk() {
-		// // 	synth.speak(utterance);
-		// // }
-
-		// function stop() {
-		// 	recognizer.stop();
-		// }
+		function stop() {
+			recognizer.stop();
+		}
 	</script>
 </html>
