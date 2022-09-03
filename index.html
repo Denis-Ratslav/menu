@@ -23,10 +23,11 @@
 			var recognizerru = new webkitSpeechRecognition();
 
 			// Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
-			recognizerru.interimResults = true;
+			recognizerru.interimResults = false;
+			recognizerru.onsoundend = false;
 
 			// Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
-			recognizerru.maxAlternatives = 600;
+			recognizerru.maxAlternatives = 6000;
 
 			// Какой язык будем распознавать?
 			recognizerru.lang = "ru-Ru";
@@ -61,10 +62,11 @@
 			var recognizer = new webkitSpeechRecognition();
 
 			// Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
-			recognizer.interimResults = true;
+			recognizer.interimResults = false;
+			recognizer.onsoundend = false;
 
 			// Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
-			recognizer.maxAlternatives = 600;
+			recognizer.maxAlternatives = 6000;
 
 			// Какой язык будем распознавать?
 			recognizer.lang = "uk-Uk";
