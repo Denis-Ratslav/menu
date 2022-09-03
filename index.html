@@ -9,10 +9,10 @@
 		<title>Назови компоненты</title>
 	</head>
 	<body>
-		<p>русский вариант тест 8</p>
+		<p>русский вариант тест 9</p>
 		<button onclick="recognizerru.start();">Слушать РУС</button>
 
-		<button onclick="stopru ()">Остановить РУС</button>
+		<button onclick="recognizerru.stop();">Остановить РУС</button>
 		<p>украинский вариант</p>
 		<button onclick="speech ()">Слушать УКР</button>
 
@@ -36,9 +36,9 @@
 			// 	recognizerru.start();
 			// }
 
-			function stopru() {
-				recognizerru.stop();
-			}
+			// function stopru() {
+			// 	recognizerru.stop();
+			// }
 
 			// Создаем распознаватель
 			var recognizer = new webkitSpeechRecognition();
