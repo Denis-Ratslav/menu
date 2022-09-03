@@ -14,9 +14,9 @@
 
 		<button onclick="recognizerru.stop();"><img src="./img/png-stop.png" alt="Остановить" width="170" /></button>
 		<h2>украинский вариант</h2>
-		<button onclick="recognizerru.start()"><img src="./img/png-start.png" alt="Слушать" width="170" /></button>
+		<button onclick="recognizer.start()"><img src="./img/png-start.png" alt="Слушать" width="170" /></button>
 
-		<button onclick="recognizerru.stop ()"><img src="./img/png-stop.png" alt="Остановить" width="170" /></button>
+		<button onclick="recognizer.stop ()"><img src="./img/png-stop.png" alt="Остановить" width="170" /></button>
 
 		<script>
 			// Создаем распознаватель
@@ -39,6 +39,7 @@
 
 			// Используем колбек для обработки результатов
 			recognizer.onresult = function (event) {
+				var result = event.results[event.resultIndex];
 				alert("Вы сказали: " + result[0].transcript);
 			};
 		</script>
