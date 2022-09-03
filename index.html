@@ -4,13 +4,13 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="Изучение основ HTML5 для новичков" />
+		<meta name="description" content="Учим меню" />
 		<!-- <link href="img/ok.png" rel="icon" /> -->
-		<title>education</title>
+		<title>Назови компоненты</title>
 	</head>
 	<button onclick="speech ()">Слушать</button>
-	<!-- <button onclick="talk ()">Проговорить</button>
-	<button onclick="stop ()">Остановить</button> -->
+	<!-- <button onclick="talk ()">Проговорить</button> -->
+	<button onclick="stop ()">Остановить</button>
 
 	<script>
 		// Создаем распознаватель
@@ -32,10 +32,10 @@
 			}
 		};
 
-		// function speech() {
-		// Начинаем слушать микрофон и распознавать голос
-		recognizer.start();
-		// }
+		function speech() {
+			// Начинаем слушать микрофон и распознавать голос
+			recognizer.start();
+		}
 
 		// var synth = window.speechSynthesis;
 		// var utterance = new SpeechSynthesisUtterance("How about we say this now? This is quite a long sentence to say.");
@@ -44,8 +44,8 @@
 		// 	synth.speak(utterance);
 		// }
 
-		// function stop() {
-		// 	synth.pause();
-		// }
+		function stop() {
+			synth.pause();
+		}
 	</script>
 </html>
