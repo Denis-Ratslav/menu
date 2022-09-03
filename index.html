@@ -8,11 +8,53 @@
 		<!-- <link href="img/ok.png" rel="icon" /> -->
 		<title>Назови компоненты</title>
 	</head>
-	<button onclick="speech ()">Слушать</button>
-	<!-- <button onclick="talk ()">Проговорить</button> -->
-	<button onclick="stop ()">Остановить</button>
+	<button onclick="speechru ()">Слушать РУС</button>
+
+	<button onclick="stopru ()">Остановить РУС</button>
+
+	<button onclick="speech ()">Слушать УКР</button>
+
+	<button onclick="stop ()">Остановить УКР</button>
 
 	<script>
+		// Создаем распознаватель
+		var recognizerru = new webkitSpeechRecognition();
+
+		// Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
+		recognizerru.interimResults = true;
+
+		// Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
+		recognizerru.maxAlternatives = 600;
+
+		// Какой язык будем распознавать?
+		recognizerru.lang = "ru-Ru";
+
+		// Используем колбек для обработки результатов
+		recognizerru.onresult = function (eventru) {
+			var resultru = eventru.results[eventru.resultIndex];
+			if (resultru.isFinal) {
+				alert("Вы сказали: " + resultru[0].transcript);
+			} else {
+				console.log("Промежуточный результат: ", resultru[0].transcript);
+			}
+		};
+
+		function speechru() {
+			// Начинаем слушать микрофон и распознавать голос
+			recognizerru.start();
+		}
+
+		// var synth = window.speechSynthesis;
+		// var utterance = new SpeechSynthesisUtterance("How about we say this now? This is quite a long sentence to say.");
+
+		// function talk() {
+		// 	synth.speak(utterance);
+		// }
+
+		function stopru() {
+			recognizerru.stop();
+		}
+
 		// Создаем распознаватель
 		var recognizer = new webkitSpeechRecognition();
 
@@ -23,7 +65,7 @@
 		recognizer.maxAlternatives = 600;
 
 		// Какой язык будем распознавать?
-		recognizer.lang = "ru-Ru";
+		recognizer.lang = "ua-Ua";
 
 		// Используем колбек для обработки результатов
 		recognizer.onresult = function (event) {
