@@ -9,7 +9,7 @@
 		<title>Назови компоненты</title>
 	</head>
 	<body>
-		<p>русский вариант тест 2</p>
+		<p>русский вариант тест 3</p>
 		<button onclick="speechru ()">Слушать РУС</button>
 
 		<button onclick="stopru ()">Остановить РУС</button>
@@ -24,7 +24,7 @@
 
 			// Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
 			recognizerru.interimResults = false;
-			recognizerru.continuous = false;
+			recognizerru.continuous = true;
 
 			// Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
 			recognizerru.maxAlternatives = 6000;
