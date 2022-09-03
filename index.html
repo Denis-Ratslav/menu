@@ -8,15 +8,16 @@
 		<!-- <link href="img/ok.png" rel="icon" /> -->
 		<title>Назови компоненты</title>
 	</head>
-	<p>русский вариант</p>
-	<button onclick="speechru ()">Слушать РУС</button>
+	<body>
+		<p>русский вариант</p>
+		<button onclick="speechru ()">Слушать РУС</button>
 
-	<button onclick="stopru ()">Остановить РУС</button>
-	<p>украинский вариант</p>
-	<button onclick="speech ()">Слушать УКР</button>
+		<button onclick="stopru ()">Остановить РУС</button>
+		<p>украинский вариант</p>
+		<button onclick="speech ()">Слушать УКР</button>
 
-	<button onclick="stop ()">Остановить УКР</button>
-
+		<button onclick="stop ()">Остановить УКР</button>
+	</body>
 	<script>
 		// Создаем распознаватель
 		var recognizerru = new webkitSpeechRecognition();
