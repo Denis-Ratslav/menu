@@ -9,7 +9,7 @@
 		<title>Назови компоненты</title>
 	</head>
 	<body>
-		<p>русский вариант тест 5</p>
+		<p>русский вариант тест 6</p>
 		<button onclick="speechru ()">Слушать РУС</button>
 
 		<button onclick="stopru ()">Остановить РУС</button>
@@ -29,16 +29,6 @@
 			recognizerru.lang = "ru-Ru";
 
 			// Используем колбек для обработки результатов
-			recognizerru.onresult = function (eventru) {
-				// var resultru = eventru.results[0];
-				var resultru = eventru.results[eventru.resultIndex];
-				alert("Вы сказали: " + resultru[0].transcript);
-				// if (resultru.isFinal) {
-				// 	alert("Вы сказали: " + resultru[0].transcript);
-				// } else {
-				// 	console.log("Промежуточный результат: ", resultru[0].transcript);
-				// }
-			};
 
 			function speechru() {
 				// Начинаем слушать микрофон и распознавать голос
@@ -47,6 +37,16 @@
 
 			function stopru() {
 				recognizerru.stop();
+				recognizerru.onresult = function (eventru) {
+					// var resultru = eventru.results[0];
+					var resultru = eventru.results[eventru.resultIndex];
+					alert("Вы сказали: " + resultru[0].transcript);
+					// if (resultru.isFinal) {
+					// 	alert("Вы сказали: " + resultru[0].transcript);
+					// } else {
+					// 	console.log("Промежуточный результат: ", resultru[0].transcript);
+					// }
+				};
 			}
 
 			// // Создаем распознаватель
